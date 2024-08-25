@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { FlatList, View, TouchableOpacity, } from 'react-native';
+import { FlatList, View, TouchableOpacity } from 'react-native';
 import CartItem from '../../components/CartItem/CartItem';
 import useCartStore from '../../config/zustand/useCartStore';
 import MainButton from '../../components/Button/MainButton';
 import SelectAll from '../../components/SelectAll/SelectAll';
 import { SafeAreaView } from 'react-native-safe-area-context';
-
 
 const Cart = () => {
     const cartItems = useCartStore((state) => state.cartItems);
@@ -37,11 +36,13 @@ const Cart = () => {
 
     return (
         <SafeAreaView className="flex-1 bg-white">
-            <SelectAll
-                items={cartItems}
-                onSelectAll={handleSelectAll}
-                allSelected={allSelected}
-            />
+            {cartItems.length > 0 && (
+                <SelectAll
+                    items={cartItems}
+                    onSelectAll={handleSelectAll}
+                    allSelected={allSelected}
+                />
+            )}
 
             <FlatList
                 data={cartItems}
