@@ -36,7 +36,7 @@ const Cart = () => {
     }, [selectedItems, cartItems.length]);
 
     return (
-        <SafeAreaView edges={['bottom', 'left', 'right']} className="flex-1 bg-white">
+        <SafeAreaView className="flex-1 bg-white">
             <SelectAll
                 items={cartItems}
                 onSelectAll={handleSelectAll}
